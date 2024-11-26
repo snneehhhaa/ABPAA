@@ -134,10 +134,14 @@ def Result():
     totalcounter += SupplierScreening()
     totalcounter += Training()
 
-    if totalcounter >= 7:
-        return render_template("sustainability_high.html", score = totalcounter)
+    if totalcounter >= 8:
+        return render_template("goldcertificate.html", score = totalcounter)
+    elif totalcounter == 7:
+        return render_template("silvercertificate.html", score = totalcounter)
+    elif totalcounter == 6:
+        return render_template("bronzecertificate.html", score = totalcounter)
     else:
-        return render_template("sustainability_low.html", score = totalcounter)
+        return render_template("bluecertificate.html", score = totalcounter)
 
 if __name__ == "__main__":
     app.run(debug=True)
